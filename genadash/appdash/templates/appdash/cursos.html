@@ -1,0 +1,22 @@
+{% extends "appdash/index.html" %}
+
+
+{% block titulo %}
+<h1 class="mb-5">Agregar curso</h1>
+{% endblock titulo %}
+{% block contenido %}
+
+<form action="{% url 'curso_form' %}" method="POST">
+    {% csrf_token %}
+    <label for="nombre_curso">Nombre del curso:</label>
+    <input type="text" name="nombre_curso" required>
+
+    <label for="comision_curso">Comision del curso:</label>
+    <input type="text" name="comision_curso" required>
+
+    <input type="submit" value="Agregar">
+
+</form>
+
+{% endblock contenido %}
+    

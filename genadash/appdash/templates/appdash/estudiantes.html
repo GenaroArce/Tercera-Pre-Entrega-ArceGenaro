@@ -1,0 +1,25 @@
+{% extends "appdash/index.html" %}
+
+
+{% block titulo %}
+<h1 class="mb-5">Agregar Estudiante</h1>
+{% endblock titulo %}
+{% block contenido %}
+
+<form action="{% url 'estudiante_form' %}" method="POST">
+    {% csrf_token %}
+    <label for="nombre_estudiante">Nombre del Estudiante:</label>
+    <input type="text" name="nombre_estudiante" required>
+
+    <label for="apellido_estudiante">Apellido del Estudiante:</label>
+    <input type="text" name="apellido_estudiante" required>
+
+    <label for="email_estudiante">Email del Estudiante:</label>
+    <input type="email" name="email_estudiante" required>
+
+    <input type="submit" value="Agregar">
+
+</form>
+
+{% endblock contenido %}
+    

@@ -1,0 +1,24 @@
+{% extends "appdash/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5">Buscar</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+
+<form action="{% url 'resultados_busqueda' %}" method="get">
+    {% csrf_token %}
+    <label for="tipo">Buscar por:</label>
+    <select name="tipo" id="tipo">
+        <option value="curso">Curso</option>
+        <option value="estudiante">Estudiante</option>
+        <option value="profesor">Profesor</option>
+    </select>
+    <br>
+    <label for="buscar">Ingrese el nombre:</label>
+    <input type="text" name="buscar" id="buscar">
+    <br>
+    <input type="submit" value="Buscar">
+</form>
+
+{% endblock contenido %}

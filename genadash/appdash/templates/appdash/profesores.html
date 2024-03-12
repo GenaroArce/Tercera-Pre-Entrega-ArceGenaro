@@ -1,0 +1,28 @@
+{% extends "appdash/index.html" %}
+
+
+{% block titulo %}
+<h1 class="mb-5">Agregar Profesor</h1>
+{% endblock titulo %}
+{% block contenido %}
+
+<form action="{% url 'profesor_form' %}" method="POST">
+    {% csrf_token %}
+    <label for="nombre_profesor">Nombre del profesor:</label>
+    <input type="text" name="nombre_profesor" required>
+
+    <label for="apellido_profesor">Apellido del profesor:</label>
+    <input type="text" name="apellido_profesor" required>
+
+    <label for="email_profesor">Email del profesor:</label>
+    <input type="email" name="email_profesor" required>
+
+    <label for="especialidad_profesor">Especialidad:</label>
+    <input type="text" name="especialidad_profesor" required>
+
+    <input type="submit" value="Agregar">
+
+</form>
+
+{% endblock contenido %}
+    

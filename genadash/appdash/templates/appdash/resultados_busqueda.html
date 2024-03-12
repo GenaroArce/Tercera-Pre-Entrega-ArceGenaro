@@ -1,0 +1,50 @@
+{% extends "appdash/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5">Resultados de la búsqueda</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<table>
+  <thead>
+    <tr>
+      {% if tipo == 'curso' %}
+      <th>Nombre</th>
+      <th>Comision</th>
+      {% elif tipo == 'estudiante' %}
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      {% elif tipo == 'profesor' %}
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Especialidad</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for resultado in resultados %}
+    <tr>
+      {% if tipo == 'curso' %}
+      <td>{{ resultado.nombre_curso }}</td>
+      <td>{{ resultado.comision_curso }}</td>
+      {% elif tipo == 'estudiante' %}
+      <td>{{ resultado.nombre_estudiante }}</td>
+      <td>{{ resultado.apellido_estudiante }}</td>
+      <td>{{ resultado.email_estudiante }}</td>
+      {% elif tipo == 'profesor' %}
+      <td>{{ resultado.nombre_profesor }}</td>
+      <td>{{ resultado.apellido_profesor }}</td>
+      <td>{{ resultado.email_profesor }}</td>
+      <td>{{ resultado.especialidad_profesor }}</td>
+      {% endif %}
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="{% if tipo == 'curso' %}2{% else %}4{% endif %}">No se encontraron resultados.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}
